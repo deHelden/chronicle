@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: chronicle_production
-  username: chronicle
-  password: <%= ENV['CHRONICLE_DATABASE_PASSWORD'] %>
