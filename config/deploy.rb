@@ -47,6 +47,19 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespace :sidekiq do
+  task :quiet do
+    on roles(:app) do
+      puts capture("pgrep -f 'sidekiq' | xargs kill -TSTP")
+    end
+  end
+  task :restart do
+    on roles(:app) do
+      execute :sudo, :systemctl, :restart, :workers
+    end
+  end
+end
+
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do
