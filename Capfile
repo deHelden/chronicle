@@ -8,7 +8,11 @@ require "capistrano/deploy"
 require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
+require 'capistrano/nginx'
 require 'capistrano/puma'
+require 'capistrano/puma/nginx'
+require 'sshkit/sudo'
+
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
