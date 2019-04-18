@@ -5,15 +5,13 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @post = Post.new(post_params)
@@ -50,8 +48,8 @@ class PostsController < ApplicationController
   end
 
   def worker
-    HardWorker.perform_async("first", 5)
-    render plain: "REQUEST TO GENERATING JOB"
+    HardWorker.perform_async('first', 5)
+    render plain: 'REQUEST TO GENERATING JOB'
   end
 
   private
